@@ -9,7 +9,7 @@ public class Line {
         this.B = line.B;
         this.C = line.C;
     }*/
-    public Line(double A, double B, double C) throws IllegalArgumentException {
+    public Line(double A, double B, double C) {
         this.A = A;
         this.B = B;
         this.C = C;
@@ -28,7 +28,7 @@ public class Line {
         return new Point(x, y);
     }
     public Line perpendicularLine(Point point) throws IllegalArgumentException {
-        return new Line(A, -B,-point.getX() * A + B * point.getY());
+        return new Line(A, -B,-point.getY() * A + B * point.getX());
     }
     public double getA() {
         return A;
@@ -39,22 +39,24 @@ public class Line {
     public double getC() {
         return C;
     }
-    @Override public String toString()
+    @Override
+    public String toString()
     {
         String kB = "",kC = "";
-        if (B>=0 && C>=0) {
+        double B1=0,C1=0;
+        if (B >= 0 )
             kB = "x + ";
+        else {
+            kB = "x - ";
+            B1=-B;
+        }
+        if (C >= 0)
             kC = "y + ";
+        else {
+            kC = "y - ";
+            C1 = -C;
         }
-        if (B<0 && C>=0) {
-            kB="x ";
-            kC="y + ";
-        }
-        if (B>=0 && C<0){
-            kB="x + ";
-            kC="y ";
-        }
-        return A + kB + B + kC + C + " = 0";
+        return A + kB + B1 + kC + C1 + " = 0";
     }
 
 }

@@ -3,7 +3,7 @@ import com.company.Line;
 import com.company.Point;
 
 public class Section {
-    private Point point1 = new Point(), point2 = new Point();
+    private Point point1, point2;
    /* public Section(Section section) {
         this.point1 = section.point1;
         this.point2 = section.point2;
@@ -20,7 +20,8 @@ public class Section {
         return ((line.getA() * point1.getX() + line.getB() * point1.getY() + line.getC()) *
                 (line.getA() * point2.getX() + line.getB() * point2.getY() + line.getC())) < 0;
     }
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "(" + point1.toString() + "; " + point2.toString() + ")";
     }
 }
