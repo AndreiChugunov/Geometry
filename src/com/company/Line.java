@@ -1,35 +1,34 @@
 package com.company;
-
+import java.lang.Exception;
+import com.company.Point;
 
 public class Line {
     private double A,B,C;
-
-    public Line(double A1,double B1,double C1) {
-        A=A1;
-        B=B1;
-        C=C1;
+   /* public Line(Line line) {
+        this.A = line.A;
+        this.B = line.B;
+        this.C = line.C;
+    }*/
+    public Line(double A, double B, double C) throws Exception {
+        this.A = A;
+        this.B = B;
+        this.C = C;
+        if(A == B && A == 0)
+            throw new Exception("Can't be such a line.");
     }
-    public void isparallel() {
-      if (A == 0)
-        System.out.println("Your line is lying in a parallel with OX");
-      else
-        if (B == 0)
-          System.out.println("Your line is lying in a parallel with OY");
-        else
-            System.out.println("Your line is not parralel to OX or OY");
+    public boolean isParallelOX() {
+        return A == 0;
     }
-    public void pointofintersection(Line line){
-        double y;
-        y=(((line.A * C) / A) - line.C) / (line.B - ((line.A * B) / A));
-        System.out.println("Two lines cross in point:");
-        System.out.println("x=" + (-B * y - C) / A);
-        System.out.println("y=" + y);
+    public boolean isParallelOY() {
+        return B == 0;
     }
-    public void somenewline(double x1,double y1) {
-        Line l1=new Line(A,-B,-y1*A-B*x1);
-        double C1=-y1*A-B*x1;
-        System.out.println("Line that is perpendicular to your line and goes through your point is:");
-        System.out.println(A + "x+(" + -B + "y)+(" + C1 + ")=0");
+    public Point pointIntersection(Line line){
+        double y = (((line.A * C) / A) - line.C) / (line.B - ((line.A * B) / A));
+        double x = (-B * y - C) / A;
+        return new Point(x, y);
+    }
+    public Line perpendicularLine(Point point) throws Exception {
+        return new Line(A,-B,-point.getY() * A + B * point.getX());
     }
     public double getA() {
         return A;
@@ -40,6 +39,9 @@ public class Line {
     public double getC() {
         return C;
     }
-
+    public String toString()
+    {
+        return A + " x " + " + (" + B + "y)" + " + (" + C + ") = 0";
+    }
 
 }

@@ -3,18 +3,25 @@ package com.company;
 import com.company.Line;
 import com.company.Section;
 
+import java.util.Vector;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        Line l=new Line(2,3,5);
-        l.isparallel();
-        Line l1=new Line(1,1,0);
-        l.pointofintersection(l1);
-        l1.somenewline(0, 0);
-        Section section=new Section(0,2,2,0);
-        section.iscrossing(l1);
-
+        try {
+            Line line1 = new Line(2, 3, 5);
+            System.out.println(line1.toString() + " isParallelOX: " + line1.isParallelOX());
+            System.out.println(line1.toString() + " isParallelOY: " + line1.isParallelOY());
+            Line line2 = new Line(1, 1, 0);
+            System.out.println(line1.pointIntersection(line2).toString());
+            System.out.println(line2.perpendicularLine(new Point(0, 0)).toString());
+            Section section = new Section(0, 2, 2, 0);
+            System.out.println(section.toString() + " isCrossing: " + section.isCrossing(line2));
+        }
+        catch (Exception exp){
+            System.out.print(exp.toString());
+        }
 
     }
 
