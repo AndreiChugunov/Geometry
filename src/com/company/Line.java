@@ -28,7 +28,7 @@ public class Line {
         return new Point(x, y);
     }
     public Line perpendicularLine(Point point) throws IllegalArgumentException {
-        return new Line(A, -B,-point.getY() * A + B * point.getX());
+        return new Line(-B, A,-point.getY() * A + B * point.getX());
     }
     public double getA() {
         return A;
