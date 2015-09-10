@@ -14,7 +14,7 @@ public class Point {
         this.x = point.x;
         this.y = point.y;
     }
-    public String toString() {
+    @Override public String toString() {
         return "(" + x + "; " + y + ")";
     }
     public double getX(){
@@ -23,12 +23,4 @@ public class Point {
     public double getY(){
         return y;
     }
-    public void setX(double x){
-        this.x=x;
-    }
-    public void setY(double y){
-        this.y=y;
-    }
-
-
 }

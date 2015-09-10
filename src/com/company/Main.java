@@ -17,7 +17,7 @@ public class Main {
             Section section = new Section(0, 2, 2, 0);
             System.out.println(section.toString() + " isCrossing: " + section.isCrossing(line2));
         }
-        catch (Exception exp){
+        catch (IllegalArgumentException exp){
             System.out.print(exp.toString());
         }
 
