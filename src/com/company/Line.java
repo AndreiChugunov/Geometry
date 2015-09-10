@@ -44,14 +44,18 @@ public class Line {
     {
         String kB = "",kC = "";
         double B1=0,C1=0;
-        if (B >= 0 )
+        if (B >= 0 ) {
             kB = "x + ";
+            B1=B;
+        }
         else {
             kB = "x - ";
             B1=-B;
         }
-        if (C >= 0)
+        if (C >= 0) {
             kC = "y + ";
+            C1=C;
+        }
         else {
             kC = "y - ";
             C1 = -C;
